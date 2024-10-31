@@ -1,0 +1,416 @@
+body {
+    width: 100%;
+}
+/* -----------------------
+** header section
+** 	------------------------*/
+.header{
+    background-color: #FFF0ED;
+}
+
+.header__section {
+    display: flex; 
+    align-items: center;
+}
+
+.header-logo{
+    display: flex;
+    justify-items: left; 
+}
+
+.nav-header {
+    display: flex;
+    justify-content: flex-end; 
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    padding: 50px; 
+    margin-left: auto; /* when you apply margin left 0 to the direct parent class (ul in this case using BEM), with flex, and a gap property, you can move the menu items to the left.  */
+    gap: 2.5rem;  
+    font-weight: 300;
+} 
+
+    .nav-items {
+        display: flex;
+        justify-self: space-evenly;
+        margin-left: auto; 
+        text-decoration: none; 
+        color: #393939;
+        font-weight: 400;
+    font-size: 1.125rem;
+    }
+
+    .nav-items_blue {
+color: #5BACC3;
+text-decoration: none;
+font-size: 1.125rem;
+font-weight: 400;
+
+    }
+
+.header__title {
+    font-size: 3.75rem;                                                            
+    padding: 0;
+    margin: 0;
+    color: #393939;
+    font-weight: 300; 
+}
+
+/*-------------------
+** hero section
+** ----------------------*/
+
+.hero{
+    background-image: url('../assets/images/coffeebeans-hero.png');
+    background-repeat: no-repeat;
+    height: 40rem; 
+    background-position: top 10% left 80%;    /* if you wanna be more specific about the background position */
+    width: 100%; /*we want to make sure its set to 100% width and can adjust the position using flex */ 
+    background-color:#FFF0ED; 
+    margin: 0%; 
+    padding: 0%;
+    display: flex;
+    font-family: 'Open sans';
+    justify-content:flex-start;   
+    align-items: center; 
+}
+
+.hero__header {
+margin: 0%;
+padding-left: 6.25rem; 
+font-size: 3.75rem;
+color: #393939;
+font-weight: 300;
+}
+
+.hero__paragraph{
+    font-size: 1.125rem; 
+    color: #393939;
+    font-weight: 300;
+    padding-left: 6.25rem;
+    margin-top: 0%;
+    padding-top: 1.25rem; 
+}
+
+   .hero__button button {
+    background-color: #5BACC3; 
+    color: #FFF;
+    border-color: #393939;
+    padding: 1rem 2rem; /* this padding is good for buttons and you can use it also in inline blocks*/
+    cursor: pointer;
+    font-size: 1.3125rem;
+    font-family: 'Open sans';
+    font-weight: 400;
+    text-align: center; 
+   
+}
+
+.hero__button {
+    padding-left: 6.25rem; 
+    padding-right: 6.25rem;
+}
+
+.hero__button :hover {        /* hover is a very cool feature for clickable buttons */
+    background-color: #c35b8c;
+    color: #fff;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    font-size: 1.3125rem;   
+    cursor:grab; 
+    transition: 0.3s;
+    border-radius: 0.625rem;
+    
+}
+
+
+/* --------------
+** main section
+**---------------*/ 
+
+/*-------------------
+** main section-- product section
+**-------------------*/
+
+.Products {
+    display: flex;
+    justify-content: center;
+    background-color:#F7F7F7; 
+}
+.product-section__title {
+    font-size: 3.75rem;
+    font-family: 'Open sans';
+    font-weight: 300; 
+} 
+
+
+
+.product-section__image { 
+    flex: 1; 
+    border-radius: 0.625rem 0.625rem 0 0;
+}
+
+.product-section__item {
+    flex: 1;
+    text-align: left;
+}
+
+.product-section__quantity {
+    text-align: left; /* Align text to the left */
+    font-size: 1.125rem; 
+    font-weight: 400;
+    color: #909090;
+}
+
+.product-section__price {
+    text-align: right; 
+    font-size: 2.0625rem; 
+    font-weight: 700; 
+    color: #5BACC3; 
+
+}
+
+p.product-section__price{
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 1.25rem;
+}
+
+p.product-section__quantity {
+    margin: 0;
+    padding-left: 1.25rem;
+
+}
+h3.product-section__item{
+    margin: 0;
+    font-size: 2.0625rem;
+    font-weight:  300;
+    font-family: 'Open sans';
+    padding-left: 1.25rem;
+}
+
+img.product-section__image {
+    padding-top: .625rem;
+    padding-bottom: 1.875rem;
+    padding-left: 100px
+}
+
+.product-grid {
+    display: flex;
+    background-color:#F7F7F7; 
+    justify-content: space-around;
+    height: 31.25rem;
+}
+.product-section {
+    background-color: #F7F7F7; 
+    color: #393939;
+    font-family: 'open sans';
+    margin-bottom: 10rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+.product-section__card{
+    background-color: #FFFFFF;
+    border: solid #FFFFFF;
+    width: 20.625rem;
+    box-shadow: 0 5px 9px -1px rgba(0, 0, 0, 0.25); 
+    margin: 0%;
+    padding: 1.25rem;
+
+}
+
+.product-details {
+    background-color: #FFF0ED; 
+    border: solid #FFF0ED; 
+    border-left: .2813rem; 
+    box-shadow: 0 5px 9px -1px rgba(0, 0, 0, 0.25);  
+}
+
+.product-section__button {
+    display: flex;
+    margin-top: 1.5rem; 
+    justify-content: center;
+}
+
+
+.product-section__button button {
+    background-color:#5BACC3;
+    color: #FFF; 
+    border-color: #393939;
+    padding: 1rem 3rem; 
+    cursor: pointer;
+    font-size: 1.125rem; 
+    text-decoration: none;
+    width:  11.25rem;
+}
+
+
+a.product-section__button {
+    background-color: #F7F7F7; 
+    margin: 0;
+    padding-top: 1.25rem;
+    padding-bottom: 4rem;
+}
+.product-section__button {
+    position: relative; 
+    display: flex;
+    margin-top: 1.5rem; 
+    justify-content: center;
+    background-color: #5BACC3;
+    color: #FFF; 
+    border: none; 
+    border-radius: 0.75rem;
+    padding: 1rem 3rem; 
+    cursor: pointer;
+    font-size: 1.125rem; 
+    text-decoration: none;
+}
+
+/*--------------
+** main section -- final section 
+**------------*/
+.final-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 1.875rem;
+    margin-bottom: 6.25rem; 
+    justify-content: space-around; 
+    align-items: flex-start; 
+    margin-bottom: 9.375rem;
+}
+
+.final-section__content {
+    max-width: 400px; /* Limit the content width */
+    flex: 1; /* Giving the content the space to take some remaining space */
+    margin-right: 20px; 
+}
+
+.final-section__image {
+    position: relative; /* applying position relative to parent to apply absolute on children*/
+    border: 5px solid #5BACC3; 
+    padding: 10px; 
+    width: 280px; 
+}
+
+.final-section__image img:first-child {
+    width: 280px; /* In order to make the background image fill it's container */
+    height: auto;
+}
+
+.final-section__image img:last-child {
+    position: absolute; /* child class so giving it absolute position relative to its parent. */ 
+    top: 20%; 
+    left: 50%; 
+    width: 120px; 
+    height: auto; 
+    transform: translateX(-50%); /* this turns it to be horizontally */
+}
+
+.final-section__header {
+    font-size: 3.75rem; 
+    font-weight: 300;
+    font-family: 'Open sans';
+    width: 31.25rem; 
+    color: #393939; 
+    display: flex;
+    margin-bottom: 0;
+}
+.final-section__description {
+    font-size: 18px;  
+    font-weight: 400; 
+    font-family: 'Open sans';
+    width: 31.25rem;
+    color:#393939; 
+}
+.final-section__images {
+    display: flex;
+    justify-content: space-between;
+}
+
+.final-section__button {
+    display: flex;
+    margin-top: 1.5rem; 
+    justify-content: left
+}
+
+
+.final-section__button button {
+    background-color:#5BACC3;
+    color: #FFF; 
+    border-color: #393939;
+    padding: 1rem 2rem; 
+    cursor: pointer;
+    font-size: 1.125rem; 
+    text-decoration: none;
+}
+
+.final-section__paragraph{
+    margin-bottom: 2rem;
+    background-color: #393939;
+    color: #FFF;
+    text-align: center;
+    font-size: calc(45rem / 16); 
+    width: 90%;
+    font-style: normal;
+    font-weight: 400;
+    font-family: 'open sans'!important; 
+    font-size: 2.8125rem;
+    color: #fff;
+    padding: 1.25rem;
+    margin: 1.25rem;
+    margin-bottom: 10.625rem; }
+
+.final-section__paragraph-special {
+    font-weight: 700;
+    font-family: 'Open sans';
+}
+
+/**------------------
+** Footer section 
+**------------------*/
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; /* Aligns items to the start */
+    padding: 20px;
+    position: relative; /* Allows absolute positioning of child elements */
+    overflow: visible;
+   background-color: #FFF0ED;
+   margin: 0; /* Ensures logos can overflow */
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: column; /* Stacks the articles vertically */
+}
+
+.footer-logo1 {
+    position: absolute; 
+    top: -20px; /* this moves the logo up.*/
+    left: -50px; /* Aligns logo to the left */
+    opacity: 25%;
+}
+
+.footer-logo2 {
+    position: absolute;
+    opacity: 25%;
+    bottom:  0px; /* this moves the logo down,negative makes it out of the flow */
+    right: -4.375rem;
+    margin: 0%;
+    padding: 0%;
+}
+.footer__headline--title {
+    font-weight: 300;
+    color: #393939;
+    font-size: 2.0625rem;
+}
+
+.footer__paragraph {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #393939;
+
+}
