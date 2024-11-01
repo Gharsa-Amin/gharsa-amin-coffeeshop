@@ -1,3 +1,6 @@
+@use './partials/global' as *;
+
+
 
 /* -----------------------
 ** header section
@@ -8,11 +11,11 @@
 ** hero section
 ** ----------------------*/
 
-.hero{
+.hero {
     background-image: url('../assets/images/coffeebeans-hero.png');
     background-repeat: no-repeat;
     height: 40rem; 
-    background-position: top 10% left 80%;    /* if you wanna be more specific about the background position */
+    background-position:top 10% left 80%;    /* if you wanna be more specific about the background position */
     width: 100%; /*we want to make sure its set to 100% width and can adjust the position using flex */ 
     background-color:#FFF0ED; 
     margin: 0%; 
@@ -21,17 +24,15 @@
     font-family: 'Open sans';
     justify-content:flex-start;   
     align-items: center; 
-}
-
-.hero__header {
-margin: 0%;
-padding-left: 6.25rem; 
-font-size: 3.75rem;
-color: #393939;
-font-weight: 300;
-}
-
-.hero__paragraph{
+    
+     &__header {
+        margin: 0; 
+        padding-left: 6.25rem; 
+        font-size: 3.75rem;
+        color: $text-color;
+        font-weight: 300;
+     } 
+     &__paragraph{
     font-size: 1.125rem; 
     color: #393939;
     font-weight: 300;
@@ -40,7 +41,11 @@ font-weight: 300;
     padding-top: 1.25rem; 
 }
 
-   .hero__button button {
+    &__button {
+        padding-left: 6.25rem; 
+        padding-right: 6.25rem;
+        
+        button {
     background-color: #5BACC3; 
     color: #FFF;
     border-color: #5BACC3;
@@ -50,14 +55,8 @@ font-weight: 300;
     font-family: 'Open sans';
     font-weight: 400;
     text-align: center; 
-}
 
-.hero__button {
-    padding-left: 6.25rem; 
-    padding-right: 6.25rem;
-}
-
-.hero__button :hover {        /* hover is a very cool feature for clickable buttons */
+        &:hover {        /* hover is a very cool feature for clickable buttons */
     background-color: #c35b8c;
     color: #fff;
     border: none;
@@ -67,16 +66,18 @@ font-weight: 300;
     transition: 0.3s;
     border-radius: 0.625rem;
     
-}
+} 
+        }
+    } 
 
-.hero__border {
+
+  &__border {
     position: relative; /* Positioning context for absolute elements */
     display: inline-block; /* Makes the border fit the button size */
     background-color: #FFF0ED;
     z-index: 1;
-  }
   
-  .hero__button {
+  &__button {
     position: relative; /* To keep it on top of the border */
     z-index: 1; /* Ensure the button appears above the border *
     border: none; /* Remove default border */
@@ -84,9 +85,8 @@ font-weight: 300;
     font-size: 16px; /* Adjust font size */
     cursor: pointer; /* Pointer cursor */
     border-radius: 5px; /* Rounded corners */
-  }
   
-  .hero__border::before {
+  &::before {
     content: '';
     position: absolute;
     top: 0;
@@ -99,6 +99,8 @@ font-weight: 300;
     border-radius: 5px; /* Match the button’s border radius */
     pointer-events: none; /* Prevent interaction with the border */
   }
+}
+} 
 
 /* --------------
 ** main section
@@ -113,35 +115,38 @@ font-weight: 300;
     justify-content: center;
     background-color:#F7F7F7; 
 }
-.product-section__title {
+.product-section{
     font-size: 3.75rem;
     font-family: 'Open sans';
     font-weight: 300; 
-} 
 
+    &__title 
+    {
+        font-weight: 300; 
+        font-size: 3.75rem;
+    }
 
-
-.product-section__image { 
+   &__image { 
     flex: 1; 
     border-radius: 0.625rem 0.625rem 0 0;
     padding-top: .625rem;
     padding-bottom: 1.875rem;
     padding-left: 100px; 
 }
-
-.product-section__item {
+ 
+    &__item {
     flex: 1;
     text-align: left;
 }
 
-.product-section__quantity {
+   &__quantity {
     text-align: left; /* Align text to the left */
     font-size: 1.125rem; 
     font-weight: 400;
     color: #909090;
 }
 
-.product-section__price {
+  &__price {
     text-align: right; 
     font-size: 2.0625rem; 
     font-weight: 700; 
@@ -149,7 +154,7 @@ font-weight: 300;
 
 }
 
-p.product-section__price{
+   & p.product-section__price{
     margin: 0;
     padding-top: 0;
     padding-bottom: 1.25rem;
@@ -273,22 +278,11 @@ a.product-section__button {
 }
 
 .final-section__image {
-    position: relative; /* applying position relative to parent to apply absolute on children*/ 
+    position: relative; /* applying position relative to parent to apply absolute on children*/
+    border: 5px solid #5BACC3; 
     padding: 10px; 
     width: 280px; 
 }
-
-.final-section__image::before {
-    content: '';
-    position: absolute;
-    top: -0.625rem; /*In order to move the border above */
-    left: -0.625rem; /* this moves the border to have a horizontol space*/
-    right: -0.625rem; 
-    bottom: -0.625rem;
-    border: 0.3125rem solid #5BACC3;
-    transform: rotate(-3deg); /* rotate is a cool feature, it rotates, and gives it angles, you can determine which angle, and how much you want to rotate. */ 
-    z-index: 1; /* to have the border on top of the menu box */
-  }
 
 .final-section__image img:first-child {
     width: 280px; /* In order to make the background image fill it's container */
@@ -335,6 +329,7 @@ a.product-section__button {
     left: 0;
     position: relative;
 /* Place it behind the button */
+
 }
 
 
@@ -357,7 +352,7 @@ a.product-section__button {
     width: 90%;
     font-style: normal;
     font-weight: 400;
-    font-family: 'open Sans'; 
+    font-family: 'open sans'!important; 
     font-size: 2.8125rem;
     color: #fff;
     padding: 1.25rem;
@@ -446,3 +441,5 @@ a.product-section__button {
     color: #393939;
 
 }
+
+
