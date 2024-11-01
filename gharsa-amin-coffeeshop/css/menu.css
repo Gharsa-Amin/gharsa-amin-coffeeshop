@@ -1,74 +1,13 @@
-* {
-    box-sizing: border-box;
-  }
-  body {
-    font-size: 1rem;    
-    font-family: 'Open  Sans'; 
-    margin: 0; 
-    width: 100%;
-    height: 100%;
-  }
-  .header{
-    background-color: #FFF0ED;
-}
 
-.header__section {
-    display: flex; 
-    align-items: center;
-}
+/* -----------------------
+** header section
+** 	------------------------*/
+/* this section is shared across landing and menu, therefore, it is in the global.css file.
 
-.header-logo{
-    display: flex;
-    justify-items: left; 
-}
+/*-------------------
+** hero section
+** ----------------------*/
 
-.nav-header {
-    display: flex;
-    justify-content: flex-end; 
-    text-decoration: none;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    padding: 50px; 
-    margin-left: auto; /* when you apply margin left 0 to the direct parent class (ul in this case using BEM), with flex, and a gap property, you can move the menu items to the left.  */
-    gap: 2.5rem;  
-    font-weight: 300;
-} 
-
-    .nav-items {
-        display: flex;
-        justify-self: space-evenly;
-        margin-left: auto; 
-        text-decoration: none; 
-        color: #393939;
-        font-weight: 400;
-    font-size: 1.125rem;
-    }
-
-    .nav-items_blue {
-color: #5BACC3;
-text-decoration: none;
-font-size: 1.125rem;
-font-weight: 400;
-
-    }
-
-.header__title {
-    font-size: 3.75rem;                                                            
-    padding: 0;
-    margin: 0;
-    color: #393939;
-    font-weight: 300; 
-    text-decoration: none;
-}
-
- 
-
-
-
-
-  
-  
   .hero-section__headline {
       
       font-weight: 400;
@@ -85,7 +24,7 @@ font-weight: 400;
       justify-content: center; /*you should apply justify content here to move the image to the center of the parent, it will move the item when it is applied to the parent.*/ 
       padding-top: 13.75rem; /*padding top moves the image to the bottom */
   }
-  
+ 
   .hero__header{
   font-family: 'Open sans'; 
   margin-top: 0%;
@@ -95,15 +34,30 @@ font-weight: 400;
   margin: 0;
   font-size: 3.75rem;
   font-weight: 300; 
-  border: 0.125rem solid; 
   background-color:#393939; 
-  border: .3125rem solid #5BACC3;
   font-family: 'Open Sans'; 
-  width: calc(300rem / 16);    /* 18.75rem */
-  height: calc(200rem /16);     /* 12.5rem */
+  width: 18.75rem;    
+  height: 12.5rem;    
   color: #FFF;
+  } 
+ 
+  .hero__header::before {
+    content: '';
+    position: absolute;
+    top: -0.625rem; /*In order to move the border above */
+    left: -0.625rem; /* this moves the border to have a horizontol space*/
+    right: -0.625rem; 
+    bottom: -0.625rem;
+    border: 0.3125rem solid #5BACC3;
+    transform: rotate(-3deg); /* rotate is a cool feature, it rotates, and gives it angles, you can determine which angle, and how much you want to rotate. */ 
+    z-index: 1; /* to have the border on top of the menu box */
   }
+
   
+  /*-------------------
+**  menu navigation section 
+** ----------------------*/ 
+
   .menu-navigation {
   background-color: #393939;
   width: 100%; 
@@ -132,7 +86,7 @@ font-weight: 400;
     padding-right: 12rem;
     padding-left: 7rem; 
   }
-  
+ 
   
   .menu-navigation__item a::before {  /* this function can be used to have three vertical same width lines, alongside in-block display.  */
   
@@ -148,7 +102,9 @@ font-weight: 400;
   
     }
   
-  
+  /*---------------------
+**  product breakdown section
+** ----------------------*/ 
   .Breakdown-products {
     margin: 0;
     padding: 0;

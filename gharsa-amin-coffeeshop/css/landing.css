@@ -1,61 +1,8 @@
-body {
-    width: 100%;
-}
+
 /* -----------------------
 ** header section
 ** 	------------------------*/
-.header{
-    background-color: #FFF0ED;
-}
 
-.header__section {
-    display: flex; 
-    align-items: center;
-}
-
-.header-logo{
-    display: flex;
-    justify-items: left; 
-}
-
-.nav-header {
-    display: flex;
-    justify-content: flex-end; 
-    text-decoration: none;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    padding: 50px; 
-    margin-left: auto; /* when you apply margin left 0 to the direct parent class (ul in this case using BEM), with flex, and a gap property, you can move the menu items to the left.  */
-    gap: 2.5rem;  
-    font-weight: 300;
-} 
-
-    .nav-items {
-        display: flex;
-        justify-self: space-evenly;
-        margin-left: auto; 
-        text-decoration: none; 
-        color: #393939;
-        font-weight: 400;
-    font-size: 1.125rem;
-    }
-
-    .nav-items_blue {
-color: #5BACC3;
-text-decoration: none;
-font-size: 1.125rem;
-font-weight: 400;
-
-    }
-
-.header__title {
-    font-size: 3.75rem;                                                            
-    padding: 0;
-    margin: 0;
-    color: #393939;
-    font-weight: 300; 
-}
 
 /*-------------------
 ** hero section
@@ -96,14 +43,13 @@ font-weight: 300;
    .hero__button button {
     background-color: #5BACC3; 
     color: #FFF;
-    border-color: #393939;
+    border-color: #5BACC3;
     padding: 1rem 2rem; /* this padding is good for buttons and you can use it also in inline blocks*/
     cursor: pointer;
     font-size: 1.3125rem;
     font-family: 'Open sans';
     font-weight: 400;
     text-align: center; 
-   
 }
 
 .hero__button {
@@ -123,6 +69,36 @@ font-weight: 300;
     
 }
 
+.hero__border {
+    position: relative; /* Positioning context for absolute elements */
+    display: inline-block; /* Makes the border fit the button size */
+    background-color: #FFF0ED;
+    z-index: 1;
+  }
+  
+  .hero__button {
+    position: relative; /* To keep it on top of the border */
+    z-index: 1; /* Ensure the button appears above the border *
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Adjust padding as needed */
+    font-size: 16px; /* Adjust font size */
+    cursor: pointer; /* Pointer cursor */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  .hero__border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #393939; /* Border color */
+    transform: rotate(5deg); /* Twisted effect */
+    z-index: 2; /* Place it behind the button */
+    border-radius: 5px; /* Match the button’s border radius */
+    pointer-events: none; /* Prevent interaction with the border */
+  }
 
 /* --------------
 ** main section
@@ -132,7 +108,7 @@ font-weight: 300;
 ** main section-- product section
 **-------------------*/
 
-.Products {
+.products {
     display: flex;
     justify-content: center;
     background-color:#F7F7F7; 
@@ -148,6 +124,9 @@ font-weight: 300;
 .product-section__image { 
     flex: 1; 
     border-radius: 0.625rem 0.625rem 0 0;
+    padding-top: .625rem;
+    padding-bottom: 1.875rem;
+    padding-left: 100px; 
 }
 
 .product-section__item {
@@ -189,11 +168,6 @@ h3.product-section__item{
     padding-left: 1.25rem;
 }
 
-img.product-section__image {
-    padding-top: .625rem;
-    padding-bottom: 1.875rem;
-    padding-left: 100px
-}
 
 .product-grid {
     display: flex;
@@ -228,13 +202,6 @@ img.product-section__image {
     box-shadow: 0 5px 9px -1px rgba(0, 0, 0, 0.25);  
 }
 
-.product-section__button {
-    display: flex;
-    margin-top: 1.5rem; 
-    justify-content: center;
-}
-
-
 .product-section__button button {
     background-color:#5BACC3;
     color: #FFF; 
@@ -252,6 +219,8 @@ a.product-section__button {
     margin: 0;
     padding-top: 1.25rem;
     padding-bottom: 4rem;
+    display: flex;
+    justify-content: center;
 }
 .product-section__button {
     position: relative; 
@@ -266,7 +235,23 @@ a.product-section__button {
     cursor: pointer;
     font-size: 1.125rem; 
     text-decoration: none;
+    overflow: hidden;
 }
+
+
+.hero__button :hover {        /* hover is a very cool feature for clickable buttons */
+    background-color: #c35b8c;
+    color: #fff;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    font-size: 1.3125rem;   
+    cursor:grab; 
+    transition: 0.3s;
+    border-radius: 0.625rem;
+    
+}
+
+
 
 /*--------------
 ** main section -- final section 
@@ -332,7 +317,14 @@ a.product-section__button {
 .final-section__button {
     display: flex;
     margin-top: 1.5rem; 
-    justify-content: left
+    justify-content: left; 
+    text-decoration: none;
+    z-index: 3; /* Twisted effect */
+    top: -0.3125rem;
+    left: 0;
+    position: relative;
+/* Place it behind the button */
+
 }
 
 
@@ -364,7 +356,37 @@ a.product-section__button {
 
 .final-section__paragraph-special {
     font-weight: 700;
-    font-family: 'Open sans';
+    font-family: 'Open Sans';
+}
+
+@keyframes rotate { /* this rotates the image, 360deg rotates it all the way from top to bottom, and in circles. if we change the deg, then it will only rotate to that degree.   */
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    animation: rotate 2s linear infinite;
+}
+
+.final-section__image:hover .rotate {
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes flash {
+    0%, 100% {
+        background-color: #393939; /* Original color */
+    }
+    50% {
+        background-color: #5BACC3; /* Flash color */
+    }
+}
+
+.final-section__paragraph { /* @keyframes flash helps with defining the color transitions. Infinite is giving it ongoing non-stop effect. 0% and 100% the background color is black, and at50% the backround color changes to the animation color. */ 
+    animation: flash 2.5s infinite; /* Continuous animation */
 }
 
 /**------------------
