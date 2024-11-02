@@ -43,7 +43,7 @@ color: #FFF;
 &::before {
 content: '';
 position: absolute;
-top: -5px; /*In order to move the border above */
+top: -5px; /* Leaving this as px instead of rm since its a border, In order to move the border above */
 left: -5px; /* this moves the border to have a horizontol space*/
 right: -5px; 
 bottom: -5px;
@@ -83,10 +83,8 @@ z-index: 1; /* to have the border on top of the menu box */
       justify-content: center;
       padding-right: 12rem;
       padding-left: 7rem; 
-    }
-  }
-    
-    .menu-navigation__item a::before {  /* this function can be used to have three vertical same width lines, alongside in-block display.  */
+      
+      a::before {  /* this function can be used to have three vertical same width lines, alongside in-block display.  */
     
       content: " | "; 
       color: $primary-color;
@@ -94,11 +92,13 @@ z-index: 1; /* to have the border on top of the menu box */
       
       }
     
-    .menu-navigation__item:last-child a:after {
+       last-child a:after {
       
       content: '';
     
-      }
+      } 
+  }
+}
       /*---------------------
 **  product breakdown section
 ** ----------------------*/ 
@@ -107,16 +107,15 @@ z-index: 1; /* to have the border on top of the menu box */
     padding: 0;
   
   }
-  
   .menu__category {
     display: block;
     margin: 0.625rem; 
     padding: 0.625rem; 
     box-shadow: 0rem 0.125rem 0.25rem  rgba(0, 0, 0, 0.1);   
-  text-align: center;
-  margin: 0%;
-  }
-  .menu__category h2 {
+    text-align: center;
+    margin: 0%;
+     
+   h2 {
     font-size: 3.75rem; 
     font-weight:300; 
     text-align: center;
@@ -124,9 +123,9 @@ z-index: 1; /* to have the border on top of the menu box */
     padding-top: 0rem;
     color:$font-color;
     margin: 1rem;
+    padding-bottom: 2rem;
   }
-  
-  .menu__category h3{
+   h3{
    font-size: 2.0625rem; 
    text-align: center;
    justify-content: center;
@@ -135,8 +134,7 @@ z-index: 1; /* to have the border on top of the menu box */
    margin: 0; 
    padding: 0;
   }
-  
-  
+} 
   .price {
     font-size: 1.125rem;
     font-weight: 400;
@@ -169,11 +167,4 @@ z-index: 1; /* to have the border on top of the menu box */
     .Pastries__paragraph {
       @include font-style
     }
-    .menu__category-heading1 {
-      padding-bottom: 0;
-      padding-top: 2rem;
-    }
-  
-    .menu__category-heading2 {
-      padding-bottom: 0;
-    }
+    

@@ -132,7 +132,7 @@ h3 {
 .hero__header::before {
   content: "";
   position: absolute;
-  top: -5px; /*In order to move the border above */
+  top: -5px; /* Leaving this as px instead of rm since its a border, In order to move the border above */
   left: -5px; /* this moves the border to have a horizontol space*/
   right: -5px;
   bottom: -5px;
@@ -168,14 +168,12 @@ h3 {
   padding-right: 12rem;
   padding-left: 7rem;
 }
-
 .menu-navigation__item a::before { /* this function can be used to have three vertical same width lines, alongside in-block display.  */
   content: " | ";
   color: #5BACC3;
   border-width: 0.25rem;
 }
-
-.menu-navigation__item:last-child a:after {
+.menu-navigation__item last-child a:after {
   content: "";
 }
 
@@ -195,7 +193,6 @@ h3 {
   text-align: center;
   margin: 0%;
 }
-
 .menu__category h2 {
   font-size: 3.75rem;
   font-weight: 300;
@@ -204,8 +201,8 @@ h3 {
   padding-top: 0rem;
   color: #393939;
   margin: 1rem;
+  padding-bottom: 2rem;
 }
-
 .menu__category h3 {
   font-size: 2.0625rem;
   text-align: center;
@@ -256,13 +253,4 @@ h3 {
   font-style: italic;
   margin: 0%;
   font-family: "Open Sans";
-}
-
-.menu__category-heading1 {
-  padding-bottom: 0;
-  padding-top: 2rem;
-}
-
-.menu__category-heading2 {
-  padding-bottom: 0;
 }/*# sourceMappingURL=menu.css.map */
