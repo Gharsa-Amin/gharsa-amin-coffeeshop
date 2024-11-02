@@ -230,9 +230,7 @@ $hover-color-1:  #5BACC3;
     /**-------------------*/
 /** main section-- Final section
 **-------------------*/
-/*--------------
-** main section -- final section 
-**------------*/
+
 .final-section {
   display: flex;
   justify-content: space-around;
@@ -331,7 +329,6 @@ $hover-color-1:  #5BACC3;
   text-align: center;
   font-size: 2.8125rem;
   width: 90%;
-  font-style: normal;
   font-weight: 400;
   font-size: 2.8125rem;
   color: #fff;
@@ -374,6 +371,60 @@ $hover-color-1:  #5BACC3;
 .final-section__paragraph { /* @keyframes flash helps with defining the color transitions. Infinite is giving it ongoing non-stop effect. 0% and 100% the background color is black, and at50% the backround color changes to the animation color. */
   animation: flash 2.5s infinite; /* Continuous animation */
 }
+
+/*----------------------
+** main section -- footer section
+**------------*/
+
+.footer {  /* this is the footer section */
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start; /* Aligns items to the start */
+  padding: 20px;
+  position: relative; /* Allows absolute positioning of child elements */
+  overflow: visible;
+  background-color: $secondary-color;
+  margin: 0; /* Ensures logos can overflow */
+
+&__container {
+  display: flex;
+  flex-direction: column; /* Stacks the articles vertically */
+}
+
+&__paragraph {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: $quaternary-color;}
+
+&__headline--title {
+    font-weight: 300;
+    color: $quaternary-color;
+    font-size: 2.0625rem;
+  }
+  
+}
+
+.footer-logo1 { /* I added target = blank to the logos since the instructions says to connect to external  websites */
+  position: absolute;
+  top: -20px; /* this moves the logo up.*/
+  left: -50px; /* Aligns logo to the left */
+  opacity: 25%;
+}
+
+.footer-logo2 {
+  position: absolute;
+  opacity: 25%;
+  bottom: 0px; /* this moves the logo down,negative makes it out of the flow */
+  right: -4.375rem;
+  margin: 0%;
+  padding: 0%;
+}
+
+
+
+
+
+
 
 
   
