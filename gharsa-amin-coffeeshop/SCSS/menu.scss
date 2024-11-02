@@ -27,8 +27,7 @@
 }
 
 .hero__header{
-font-family: $font-stack;  
-margin-top: 0%;
+font-family: $font-stack; 
 display: flex; 
 position: relative;
 justify-content: center;
@@ -108,8 +107,9 @@ z-index: 1; /* to have the border on top of the menu box */
   
   }
   .menu__category {
-    display: block;
-    margin: 0.625rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 0.625rem; 
     box-shadow: 0rem 0.125rem 0.25rem  rgba(0, 0, 0, 0.1);   
     text-align: center;
