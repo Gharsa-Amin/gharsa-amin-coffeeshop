@@ -339,9 +339,19 @@ a.product-section__button {
 
 .final-section__image {
   position: relative; /* applying position relative to parent to apply absolute on children*/
-  border: 5px solid #5BACC3;
   padding: 10px;
   width: 280px;
+}
+.final-section__image::before {
+  content: '';
+  position: absolute;
+  top: -0.625rem; /*In order to move the border above */
+  left: -0.625rem; /* this moves the border to have a horizontol space*/
+  right: -0.625rem; 
+  bottom: -0.625rem;
+  border: .3125rem solid #5BACC3;
+  transform: rotate(-20deg); /* rotate is a cool feature, it rotates, and gives it angles, you can determine which angle, and how much you want to rotate. */ 
+  z-index: 1; /* to have the border on top of the menu box */
 }
 
 .final-section__image img:first-child {
@@ -403,6 +413,8 @@ a.product-section__button {
   text-decoration: none;
 }
 
+
+
 .final-section__paragraph {
   margin-bottom: 2rem;
   background-color: #393939;
@@ -432,12 +444,14 @@ a.product-section__button {
   100% {
     transform: rotate(360deg);
   }
-}
-.rotate {
+} 
+/*
+.rotate { this class will rotate the animation indefinately and without any user interactions.
   animation: rotate 2s linear infinite;
-}
+} 
+  */
 
-.final-section__image:hover .rotate {
+.final-section__image:hover .rotate { /* this will only rotate when the user hovers over the animation  */
   animation: rotate 2s linear infinite;
 }
 

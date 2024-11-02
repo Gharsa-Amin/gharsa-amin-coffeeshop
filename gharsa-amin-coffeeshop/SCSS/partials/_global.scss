@@ -1,6 +1,33 @@
+/* since the folder structure only requires us to use global scss 
+I will have seperate sections for variables, mixins and typography here under global scss.*/
+/* -----------------------
+** Variable section 
+** 	------------------------*/
 $font-stack: 'Open Sans'; 
 $font-color: #393939; 
-$font-size: 1rem;
+$font-size: 1rem; 
+$primary-color:#5BACC3; 
+$secondary-color: #FFF0ED; 
+$tertiary-color:
+$hover-color-1: ;
+$hover-color-2: ;
+/* -----------------------
+** mixin section 
+** 	------------------------*/
+
+
+/*@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+} 
+@mixin border-radius {
+    border-radius: $radius;
+} */ 
+
+/* -----------------------
+** mixin section 
+** 	------------------------*/
 
 body {
     font-family: $font-stack;
@@ -9,6 +36,8 @@ body {
 
 h1 {
 font-size: 3.75rem;
+margin: 0; 
+padding: 0;
 }
 
 h2 {
@@ -19,9 +48,7 @@ h3 {
     font-size: 2.0625rem;
 }
 
-@mixin border-radius {
-    border-radius: $radius;
-}
+
 body {
     width: 100%;
     font-family: 'Open Sans'; 
@@ -51,7 +78,7 @@ body {
         list-style-type: none;
         padding: 0;
         margin: 0;
-        padding: 50px; 
+        padding: 3.125rem; 
         margin-left: auto; /* when you apply margin left 0 to the direct parent class (ul in this case using BEM), with flex, and a gap property, you can move the menu items to the left.  */
         gap: 2.5rem;  
         font-weight: 300;
@@ -79,9 +106,9 @@ body {
     .header__title {
         font-size: 3.75rem;                                                            
         padding: 0;
-        margin: 0;
+        margin: 0%;
         color: #393939;
         font-weight: 300; 
         text-decoration: none;
-     anim
+    }
     

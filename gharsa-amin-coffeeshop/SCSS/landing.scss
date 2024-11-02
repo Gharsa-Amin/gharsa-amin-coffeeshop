@@ -1,11 +1,9 @@
 @use './partials/global' as *;
 
 
-
 /* -----------------------
 ** header section
 ** 	------------------------*/
-
 
 /*-------------------
 ** hero section
@@ -81,10 +79,10 @@
     position: relative; /* To keep it on top of the border */
     z-index: 1; /* Ensure the button appears above the border *
     border: none; /* Remove default border */
-    padding: 10px 20px; /* Adjust padding as needed */
-    font-size: 16px; /* Adjust font size */
+    padding: .625rem 1.25rem; /* Adjust padding as needed */
+    font-size: 1rem; /* Adjust font size */
     cursor: pointer; /* Pointer cursor */
-    border-radius: 5px; /* Rounded corners */
+    border-radius: .3125rem; /* Rounded corners */
   
   &::before {
     content: '';
@@ -93,10 +91,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border: 2px solid #393939; /* Border color */
+    border: .125rem solid #393939; /* Border color */
     transform: rotate(5deg); /* Twisted effect */
     z-index: 2; /* Place it behind the button */
-    border-radius: 5px; /* Match the button’s border radius */
+    border-radius: .3125rem; /* Match the button’s border radius */
     pointer-events: none; /* Prevent interaction with the border */
   }
 }
@@ -131,7 +129,7 @@
     border-radius: 0.625rem 0.625rem 0 0;
     padding-top: .625rem;
     padding-bottom: 1.875rem;
-    padding-left: 100px; 
+    padding-left: 6.25rem; 
 }
  
     &__item {
@@ -272,20 +270,32 @@ a.product-section__button {
 }
 
 .final-section__content {
-    max-width: 400px; /* Limit the content width */
+    max-width: 25rem; /* Limit the content width */
     flex: 1; /* Giving the content the space to take some remaining space */
-    margin-right: 20px; 
+    margin-right: 1.25rem; 
 }
 
 .final-section__image {
     position: relative; /* applying position relative to parent to apply absolute on children*/
-    border: 5px solid #5BACC3; 
-    padding: 10px; 
-    width: 280px; 
-}
+    border: .3125rem solid #5BACC3; 
+    padding: .625rem; 
+    width: 17.5rem; 
+    
+&__image::before {
+    content: '';
+    position: absolute;
+    top: -0.625rem; /*In order to move the border above */
+    left: -0.625rem; /* this moves the border to have a horizontol space*/
+    right: -0.625rem; 
+    bottom: -0.625rem;
+    border: 0.3125rem solid #5BACC3;
+    transform: rotate(-180deg); /* rotate is a cool feature, it rotates, and gives it angles, you can determine which angle, and how much you want to rotate. */ 
+    z-index: -1; /* to have the border on top of the menu box */
+  }
+
 
 .final-section__image img:first-child {
-    width: 280px; /* In order to make the background image fill it's container */
+    width: 17.5rem; /* In order to make the background image fill it's container */
     height: auto;
 }
 
@@ -293,10 +303,11 @@ a.product-section__button {
     position: absolute; /* child class so giving it absolute position relative to its parent. */ 
     top: 20%; 
     left: 50%; 
-    width: 120px; 
+    width: 7.5rem; 
     height: auto; 
     transform: translateX(-50%); /* this turns it to be horizontally */
 }
+
 
 .final-section__header {
     font-size: 3.75rem; 
@@ -308,7 +319,7 @@ a.product-section__button {
     margin-bottom: 0;
 }
 .final-section__description {
-    font-size: 18px;  
+    font-size: 1.125rem;  
     font-weight: 400; 
     font-family: 'Open sans';
     width: 31.25rem;
@@ -373,9 +384,9 @@ a.product-section__button {
     }
 }
 
-.rotate {
+/*.rotate {
     animation: rotate 2s linear infinite;
-}
+} */
 
 .final-section__image:hover .rotate {
     animation: rotate 2s linear infinite;
@@ -402,7 +413,7 @@ a.product-section__button {
     display: flex;
     justify-content: space-around;
     align-items: flex-start; /* Aligns items to the start */
-    padding: 20px;
+    padding: 1.25rem;
     position: relative; /* Allows absolute positioning of child elements */
     overflow: visible;
    background-color: #FFF0ED;
@@ -416,15 +427,15 @@ a.product-section__button {
 
 .footer-logo1 {
     position: absolute; 
-    top: -20px; /* this moves the logo up.*/
-    left: -50px; /* Aligns logo to the left */
+    top: -1.25rem; /* this moves the logo up.*/
+    left: -3.125rem; /* Aligns logo to the left */
     opacity: 25%;
 }
 
 .footer-logo2 {
     position: absolute;
     opacity: 25%;
-    bottom:  0px; /* this moves the logo down,negative makes it out of the flow */
+    bottom:  0rem; /* this moves the logo down,negative makes it out of the flow */
     right: -4.375rem;
     margin: 0%;
     padding: 0%;
