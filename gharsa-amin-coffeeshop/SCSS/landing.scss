@@ -1,456 +1,379 @@
 @use './partials/global' as *;
-
+$font-stack: 'Open Sans'; 
+$font-color: #393939; 
+$font-size: 1rem; 
+$primary-color:#5BACC3; 
+$secondary-color: #FFF0ED; 
+$tertiary-color: #909090; 
+$quaternary-color:#393939;
+$hover-color-1:  #5BACC3; 
 
 /* -----------------------
 ** header section
-** 	------------------------*/
+**  ------------------------*/
+/* shared across both pages, therefore, its in the global.scss folder. */
+
 
 /*-------------------
 ** hero section
 ** ----------------------*/
 
-.hero {
-    background-image: url('../assets/images/coffeebeans-hero.png');
+.hero { /* have already defined the font color on the global class, and in the body, so it should apply across the board, */ 
+    background-image: url("../assets/images/coffeebeans-hero.png");
     background-repeat: no-repeat;
-    height: 40rem; 
-    background-position:top 10% left 80%;    /* if you wanna be more specific about the background position */
-    width: 100%; /*we want to make sure its set to 100% width and can adjust the position using flex */ 
-    background-color:#FFF0ED; 
-    margin: 0%; 
-    padding: 0%;
-    display: flex;
-    font-family: 'Open sans';
-    justify-content:flex-start;   
+    background-position: top 10% left 80%;/* if you wanna be more specific about the background position, instead of saying, 'cover' you can define the parameters. */
+    background-color: $secondary-color;  /* this will be the color based on the scss variables. */
+    height: 40rem;
+    display: flex;  /* this will make the container a flex container, and applying flex to the parent will make the whole container flex. */
+    justify-content: flex-start;
     align-items: center; 
-    
-     &__header {
-        margin: 0; 
-        padding-left: 6.25rem; 
+
+    &__header { /* a cool way of using flex, its called nesting, when you use the BEM naming convention, and then use the children as nested to the parent */
+        padding-left: 6.25rem;
         font-size: 3.75rem;
-        color: $text-color;
+        color: $font-color;  /* this will be the color based on the scss variables. */
         font-weight: 300;
-     } 
-     &__paragraph{
-    font-size: 1.125rem; 
-    color: #393939;
-    font-weight: 300;
-    padding-left: 6.25rem;
-    margin-top: 0%;
-    padding-top: 1.25rem; 
-}
+    }
 
+    &__paragraph {
+        font-size: 1.125rem;
+        color: $font-color;
+        font-weight: 300;
+        padding-left: 6.25rem;
+        margin-top: 0;
+        padding-top: 1.25rem;
+    }
+    &__border {
+        position: relative; /* we can apply relative position on the children elements, while applying absolute position on the parent  */
+        display: inline-block; /* It can make the border fit the button size */
+        background-color: $secondary-color;
+        z-index: 1; /* good reference for z-index: https://www.w3schools.com/cssref/pr_pos_z-index.php; The z-index property specifies the stack order of an element.An element with greater stack order is always in front of an element with a lower stack order. z-index only works on positioned elements.*/ 
+      }
+      
+      
+      &__border::before { /* ::before  is a pseudo-element, it can be used to add content to an element, without adding any content; so for example, i want to add a border around but dont need to have classes, i can use this and wrap content around empty "" */
+        content: "";
+        position: absolute; 
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid $quaternary-color; 
+        transform: rotate(5deg); /* Transform rotate is a function that rotates an object or element around a fixed point by a specified degree, either clockwise or counterclockwise. This property allows you to rotate, scale, move, skew, etc., elements.https://www.w3schools.com/cssref/css3_pr_transform.php */
+        z-index: 2; 
+        border-radius: 5px; /* it makes the button to have a rounded effect */
+        pointer-events: none; /* you only want the clickable  area to be the button itself, not the border */
+      }
     &__button {
-        padding-left: 6.25rem; 
+        padding-left: 6.25rem;
         padding-right: 6.25rem;
-        
+        position: relative; /* To keep it on top of the border */
+        z-index: 1;
+        padding: 10px 20px; 
+        font-size: 16px; 
+        cursor: pointer; 
+        border-radius: 5px; 
+
         button {
-    background-color: #5BACC3; 
-    color: #FFF;
-    border-color: #5BACC3;
-    padding: 1rem 2rem; /* this padding is good for buttons and you can use it also in inline blocks*/
-    cursor: pointer;
-    font-size: 1.3125rem;
-    font-family: 'Open sans';
-    font-weight: 400;
-    text-align: center; 
+            background-color: $primary-color;
+            color: #FFF;
+            border: none;
+            padding: 1rem 2rem; /* this range of padding is good for designing buttons and you can use it alongside inline blocks*/
+            cursor: pointer;  /* this will change the cursor to a pointer when you hover over the button */
+            font-size: 1.3125rem;
+            font-family: $font-stack;
+            font-weight: 400;
+            text-align: center;
 
-        &:hover {        /* hover is a very cool feature for clickable buttons */
-    background-color: #c35b8c;
-    color: #fff;
-    border: none;
-    padding: 0.625rem 1.25rem;
-    font-size: 1.3125rem;   
-    cursor:grab; 
-    transition: 0.3s;
-    border-radius: 0.625rem;
-    
-} 
+            &:hover { /* hover is a very cool feature for clickable buttons */
+                background-color: $hover-color-1;
+                transition: 0.3s;
+                border-radius: 0.625rem;  /* border radius helps to round the edges, and mostly 10-12px is a good range to accomplish the end goal. */
+                transform: scale(1.5);   /* this will make the button bigger when you hover over it, and the button will come back to the normal state once its unhovered. */
+            }
+            
         }
-    } 
-
-
-  &__border {
-    position: relative; /* Positioning context for absolute elements */
-    display: inline-block; /* Makes the border fit the button size */
-    background-color: #FFF0ED;
-    z-index: 1;
-  
-  &__button {
-    position: relative; /* To keep it on top of the border */
-    z-index: 1; /* Ensure the button appears above the border *
-    border: none; /* Remove default border */
-    padding: .625rem 1.25rem; /* Adjust padding as needed */
-    font-size: 1rem; /* Adjust font size */
-    cursor: pointer; /* Pointer cursor */
-    border-radius: .3125rem; /* Rounded corners */
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: .125rem solid #393939; /* Border color */
-    transform: rotate(5deg); /* Twisted effect */
-    z-index: 2; /* Place it behind the button */
-    border-radius: .3125rem; /* Match the button’s border radius */
-    pointer-events: none; /* Prevent interaction with the border */
-  }
+    }
 }
-} 
 
-/* --------------
+/*--------------
 ** main section
-**---------------*/ 
+**---------------*/
 
-/*-------------------
-** main section-- product section
+/** main section-- product section
 **-------------------*/
-
 .products {
     display: flex;
     justify-content: center;
-    background-color:#F7F7F7; 
-}
-.product-section{
-    font-size: 3.75rem;
-    font-family: 'Open sans';
-    font-weight: 300; 
+    background-color: #F7F7F7;
 
-    &__title 
-    {
-        font-weight: 300; 
-        font-size: 3.75rem;
-    }
-
-   &__image { 
-    flex: 1; 
-    border-radius: 0.625rem 0.625rem 0 0;
-    padding-top: .625rem;
-    padding-bottom: 1.875rem;
-    padding-left: 6.25rem; 
-}
- 
-    &__item {
-    flex: 1;
-    text-align: left;
-}
-
-   &__quantity {
-    text-align: left; /* Align text to the left */
-    font-size: 1.125rem; 
-    font-weight: 400;
-    color: #909090;
-}
-
-  &__price {
-    text-align: right; 
-    font-size: 2.0625rem; 
-    font-weight: 700; 
-    color: #5BACC3; 
-
-}
-
-   & p.product-section__price{
-    margin: 0;
-    padding-top: 0;
-    padding-bottom: 1.25rem;
-}
-
-p.product-section__quantity {
-    margin: 0;
-    padding-left: 1.25rem;
-
-}
-h3.product-section__item{
-    margin: 0;
-    font-size: 2.0625rem;
-    font-weight:  300;
-    font-family: 'Open sans';
-    padding-left: 1.25rem;
-}
-
-
-.product-grid {
+  }
+  .product-grid {
     display: flex;
-    background-color:#F7F7F7; 
-    justify-content: space-around;
+    background-color: #F7F7F7;
+    justify-content: space-around; /*space around gives it space around the objects, space between gives space between the objects, and space evenly distributes space evenly, they only work on row; not columns.*/
     height: 31.25rem;
-}
-.product-section {
-    background-color: #F7F7F7; 
-    color: #393939;
-    font-family: 'open sans';
+  }
+  
+  .product-section {
+    background-color: #F7F7F7;
+    color: $font-color;
     margin-bottom: 10rem;
     display: flex;
     justify-content: center;
+  
+  &__title { /* A Ver great way to utilize the BEM naming convention alongside the Sass; if you follow the name__ format for most of your BEAM, its much easier to use it later for Sass. Good BEAM, easier Saas */ 
+    font-size: 3.75rem;
+    font-weight: 300;
+  }
+  
+  &__image {
+    flex: 1;
+    border-radius: 0.625rem 0.625rem 0 0;
+    padding-top: 0.625rem;
+    padding-bottom: 1.875rem;
+    padding-left: 100px;
+  }
+  
+  &__item {
+    flex: 1;
+    text-align: left;
+  }
+  
+  &__quantity {
+    text-align: left; /* Align text to the left */
+    font-size: 1.125rem;
+    font-weight: 400;
+    color:$tertiary-color;
+  }
 
-}
+  &__price {
+    text-align: right;
+    font-size: 2.0625rem;
+    font-weight: 700;
+    color: $primary-color;}
+  
+    &__card {
+      background-color: #FFFFFF;
+      border: solid #FFFFFF;
+      width: 20.625rem;
+      box-shadow: 0 5px 9px -1px rgba(0, 0, 0, 0.25);
+      margin: 0%;
+      padding: 1.25rem;
+    }
 
-.product-section__card{
-    background-color: #FFFFFF;
-    border: solid #FFFFFF;
-    width: 20.625rem;
-    box-shadow: 0 5px 9px -1px rgba(0, 0, 0, 0.25); 
-    margin: 0%;
-    padding: 1.25rem;
+    &__button {
+      position: relative;
+      display: flex;
+      margin-top: 1.5rem;
+      justify-content: center;
+      background-color: $primary-color;
+      color: #FFF;
+      border: none;
+      border-radius: 0.75rem;
+      padding: 1rem 3rem;
+      cursor: pointer;
+      font-size: 1.125rem;
+      text-decoration: none;
+      overflow: hidden;
+      
+    }
+    
+  }
 
-}
+  p.product-section__price {
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 1.25rem;
+  }
+  
+  p.product-section__quantity {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+  
+  h3.product-section__item {
+    margin: 0;
+    font-size: 2.0625rem;
+    font-weight: 300;
+    padding-left: 1.25rem;
+  }
+  
+  .product-details {
+    background-color: $secondary-color;
+    border: solid $secondary-color;
+    border-left: 0.2813rem;
+    box-shadow: 0 5px 9px -1px rgba(0, 0, 0, 0.25);
+  }
 
-.product-details {
-    background-color: #FFF0ED; 
-    border: solid #FFF0ED; 
-    border-left: .2813rem; 
-    box-shadow: 0 5px 9px -1px rgba(0, 0, 0, 0.25);  
-}
-
-.product-section__button button {
-    background-color:#5BACC3;
-    color: #FFF; 
-    border-color: #393939;
-    padding: 1rem 3rem; 
+  .product-section__button button {
+    background-color: $primary-color;
+    color: #FFF;
+    border-color: $quaternary-color;
+    padding: 1rem 3rem;
     cursor: pointer;
-    font-size: 1.125rem; 
+    font-size: 1.125rem;
     text-decoration: none;
-    width:  11.25rem;
-}
-
-
-a.product-section__button {
-    background-color: #F7F7F7; 
+    width: 11.25rem;
+    font-family:$font-stack;
+  }
+  
+  a.product-section__button {
+    background-color: #F7F7F7;
     margin: 0;
     padding-top: 1.25rem;
     padding-bottom: 4rem;
     display: flex;
     justify-content: center;
-}
-.product-section__button {
-    position: relative; 
-    display: flex;
-    margin-top: 1.5rem; 
-    justify-content: center;
-    background-color: #5BACC3;
-    color: #FFF; 
-    border: none; 
-    border-radius: 0.75rem;
-    padding: 1rem 3rem; 
-    cursor: pointer;
-    font-size: 1.125rem; 
-    text-decoration: none;
-    overflow: hidden;
-}
-
-
-.hero__button :hover {        /* hover is a very cool feature for clickable buttons */
-    background-color: #c35b8c;
-    color: #fff;
-    border: none;
-    padding: 0.625rem 1.25rem;
-    font-size: 1.3125rem;   
-    cursor:grab; 
-    transition: 0.3s;
-    border-radius: 0.625rem;
-    
-}
-
-
-
+  }
+  
+    /**-------------------*/
+/** main section-- Final section
+**-------------------*/
 /*--------------
 ** main section -- final section 
 **------------*/
-.final-container {
-    display: flex;
-    justify-content: space-around;
-    padding: 1.875rem;
-    margin-bottom: 6.25rem; 
-    justify-content: space-around; 
-    align-items: flex-start; 
-    margin-bottom: 9.375rem;
+.final-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 1.875rem;
+  margin-bottom: 6.25rem;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 9.375rem;
+
+&__content {
+  max-width: 400px; 
+  flex: 1; /* how much space do you want the content to take in connection to others */
+  margin-right: 20px;
 }
 
-.final-section__content {
-    max-width: 25rem; /* Limit the content width */
-    flex: 1; /* Giving the content the space to take some remaining space */
-    margin-right: 1.25rem; 
+&__image {
+  position: relative; /* applying position relative to parent to apply absolute on children*/
+  padding: 10px;
+  width: 280px;
+
+   &::before {
+  content: '';
+  position: absolute;
+  top: -0.625rem; /*In order to move the border above */
+  left: -0.625rem; /* this moves the border to have a horizontol space*/
+  right: -0.625rem; 
+  bottom: -0.625rem;
+  border: .3125rem solid $primary-color;
+  transform: rotate(-20deg); /* rotate is a cool feature, it rotates, and gives it angles, you can determine which angle, and how much you want to rotate. */ 
+  z-index: 1; /* to have the border on top of the menu box */
 }
 
-.final-section__image {
-    position: relative; /* applying position relative to parent to apply absolute on children*/
-    border: .3125rem solid #5BACC3; 
-    padding: .625rem; 
-    width: 17.5rem; 
-    
-&__image::before {
-    content: '';
-    position: absolute;
-    top: -0.625rem; /*In order to move the border above */
-    left: -0.625rem; /* this moves the border to have a horizontol space*/
-    right: -0.625rem; 
-    bottom: -0.625rem;
-    border: 0.3125rem solid #5BACC3;
-    transform: rotate(-180deg); /* rotate is a cool feature, it rotates, and gives it angles, you can determine which angle, and how much you want to rotate. */ 
-    z-index: -1; /* to have the border on top of the menu box */
-  }
+    img:first-child {
+  width: 280px; /* In order to make the background image fill it's container */
+  height: auto;}
 
-
-.final-section__image img:first-child {
-    width: 17.5rem; /* In order to make the background image fill it's container */
-    height: auto;
+ img:last-child {
+  position: absolute; /* child class so giving it absolute position relative to its parent. */
+  top: 20%;
+  left: 50%;
+  width: 120px;
+  height: auto;
+  transform: translateX(-50%); /* this turns it to be horizontally */
+}
 }
 
-.final-section__image img:last-child {
-    position: absolute; /* child class so giving it absolute position relative to its parent. */ 
-    top: 20%; 
-    left: 50%; 
-    width: 7.5rem; 
-    height: auto; 
-    transform: translateX(-50%); /* this turns it to be horizontally */
+&__header {
+  font-size: 3.75rem;
+  font-weight: 300;
+  font-family: $font-stack;  /* using the font stack variable because the body style for some reason is over-written, and doesnt apply unless I specifically apply it here to the child. */
+  width: 31.25rem;
+  color: $quaternary-color;
+  display: flex;
+  margin-bottom: 0;
 }
 
-
-.final-section__header {
-    font-size: 3.75rem; 
-    font-weight: 300;
-    font-family: 'Open sans';
-    width: 31.25rem; 
-    color: #393939; 
-    display: flex;
-    margin-bottom: 0;
-}
-.final-section__description {
-    font-size: 1.125rem;  
-    font-weight: 400; 
-    font-family: 'Open sans';
-    width: 31.25rem;
-    color:#393939; 
-}
-.final-section__images {
-    display: flex;
-    justify-content: space-between;
+&__description {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: $font-stack; 
+  width: 31.25rem;
+  color: $quaternary-color;
 }
 
-.final-section__button {
-    display: flex;
-    margin-top: 1.5rem; 
-    justify-content: left; 
-    text-decoration: none;
-    z-index: 3; /* Twisted effect */
-    top: -0.3125rem;
-    left: 0;
-    position: relative;
-/* Place it behind the button */
+&__images {
+  display: flex;
+  justify-content: space-between;
+}
+
+&__button {
+  display: flex;
+  margin-top: 1.5rem;
+  justify-content: left;
+  text-decoration: none;
+  z-index: 3; /* Twisted effect */
+  top: -0.3125rem;
+  left: 0;
+  position: relative;
+  /* Place it behind the button */
+     button {
+  background-color: $primary-color;
+  color: #FFF;
+  border-color: $quaternary-color;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-family: $font-stack;
+}
 
 }
 
-
-.final-section__button button {
-    background-color:#5BACC3;
-    color: #FFF; 
-    border-color: #393939;
-    padding: 1rem 2rem; 
-    cursor: pointer;
-    font-size: 1.125rem; 
-    text-decoration: none;
+&__paragraph {
+  margin-bottom: 2rem;
+  background-color: $quaternary-color;
+  color: #FFF;
+  text-align: center;
+  font-size: 2.8125rem;
+  width: 90%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.8125rem;
+  color: #fff;
+  padding: 1.25rem;
+  margin: 1.25rem;
+  margin-bottom: 10.625rem;
 }
 
-.final-section__paragraph{
-    margin-bottom: 2rem;
-    background-color: #393939;
-    color: #FFF;
-    text-align: center;
-    font-size: calc(45rem / 16); 
-    width: 90%;
-    font-style: normal;
-    font-weight: 400;
-    font-family: 'open sans'!important; 
-    font-size: 2.8125rem;
-    color: #fff;
-    padding: 1.25rem;
-    margin: 1.25rem;
-    margin-bottom: 10.625rem; }
-
-.final-section__paragraph-special {
-    font-weight: 700;
-    font-family: 'Open Sans';
+  &__paragraph-special {
+  font-weight: 700;
+}
 }
 
 @keyframes rotate { /* this rotates the image, 360deg rotates it all the way from top to bottom, and in circles. if we change the deg, then it will only rotate to that degree.   */
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+/*
+.rotate { this class will rotate the animation indefinately and without any user interactions.
+  animation: rotate 2s linear infinite;
+} 
+  */
 
-/*.rotate {
-    animation: rotate 2s linear infinite;
-} */
-
-.final-section__image:hover .rotate {
-    animation: rotate 2s linear infinite;
+.final-section__image:hover .rotate { /* this will only rotate when the user hovers over the animation  */
+  animation: rotate 2s linear infinite;
 }
 
 @keyframes flash {
-    0%, 100% {
-        background-color: #393939; /* Original color */
-    }
-    50% {
-        background-color: #5BACC3; /* Flash color */
-    }
+  0%, 100% {
+    background-color: $quaternary-color; /* Original color */
+  }
+  50% {
+    background-color: $primary-color; /* Flash color */
+  }
 }
-
-.final-section__paragraph { /* @keyframes flash helps with defining the color transitions. Infinite is giving it ongoing non-stop effect. 0% and 100% the background color is black, and at50% the backround color changes to the animation color. */ 
-    animation: flash 2.5s infinite; /* Continuous animation */
-}
-
-/**------------------
-** Footer section 
-**------------------*/
-
-.footer {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start; /* Aligns items to the start */
-    padding: 1.25rem;
-    position: relative; /* Allows absolute positioning of child elements */
-    overflow: visible;
-   background-color: #FFF0ED;
-   margin: 0; /* Ensures logos can overflow */
-}
-
-.footer__container {
-    display: flex;
-    flex-direction: column; /* Stacks the articles vertically */
-}
-
-.footer-logo1 {
-    position: absolute; 
-    top: -1.25rem; /* this moves the logo up.*/
-    left: -3.125rem; /* Aligns logo to the left */
-    opacity: 25%;
-}
-
-.footer-logo2 {
-    position: absolute;
-    opacity: 25%;
-    bottom:  0rem; /* this moves the logo down,negative makes it out of the flow */
-    right: -4.375rem;
-    margin: 0%;
-    padding: 0%;
-}
-.footer__headline--title {
-    font-weight: 300;
-    color: #393939;
-    font-size: 2.0625rem;
-}
-
-.footer__paragraph {
-    font-size: 1.125rem;
-    font-weight: 400;
-    color: #393939;
-
+.final-section__paragraph { /* @keyframes flash helps with defining the color transitions. Infinite is giving it ongoing non-stop effect. 0% and 100% the background color is black, and at50% the backround color changes to the animation color. */
+  animation: flash 2.5s infinite; /* Continuous animation */
 }
 
 
+  
