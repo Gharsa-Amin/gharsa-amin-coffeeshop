@@ -132,21 +132,21 @@ h3 {
   left: 0;
   right: 0;
   bottom: 0;
-  border: 2px solid #393939;
+  border: 2px solid #393939; /* leaving border in px instead of rem for better user experience */
   transform: rotate(5deg); /* Transform rotate is a function that rotates an object or element around a fixed point by a specified degree, either clockwise or counterclockwise. This property allows you to rotate, scale, move, skew, etc., elements.https://www.w3schools.com/cssref/css3_pr_transform.php */
   z-index: 2;
-  border-radius: 5px; /* it makes the button to have a rounded effect */
+  border-radius: 5px; /* it makes the button to have a rounded effect,leaving it to px instead of rem since its border */
   pointer-events: none; /* you only want the clickable  area to be the button itself, not the border */
 }
 .hero__button {
   padding-left: 6.25rem;
   padding-right: 6.25rem;
-  position: relative; /* To keep it on top of the border */
+  position: relative; /* To keep it on top of the border, it is applied relative to the objects around it */
   z-index: 1;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 0.625rem 1.25rem;
+  font-size: 1rem;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 5px; /* leaving this in px instead of rem because it is border, and we dont want the borders to change when the user zooms in */
 }
 .hero__button button {
   background-color: #5BACC3;
@@ -162,7 +162,7 @@ h3 {
 .hero__button button:hover { /* hover is a very cool feature for clickable buttons */
   background-color: #5BACC3;
   transition: 0.3s;
-  border-radius: 0.625rem; /* border radius helps to round the edges, and mostly 10-12px is a good range to accomplish the end goal. */
+  border-radius: 10px; /* border radius helps to round the edges, and mostly 10-12px is a good range to accomplish the end goal. */
   transform: scale(1.5); /* this will make the button bigger when you hover over it, and the button will come back to the normal state once its unhovered. */
 }
 
@@ -197,10 +197,10 @@ h3 {
 }
 .product-section__image {
   flex: 1;
-  border-radius: 0.625rem 0.625rem 0 0;
+  border-radius: 10px 10px 0 0;
   padding-top: 0.625rem;
   padding-bottom: 1.875rem;
-  padding-left: 100px;
+  padding-left: 6.25rem;
 }
 .product-section__item {
   flex: 1;
@@ -234,7 +234,7 @@ h3 {
   background-color: #5BACC3;
   color: #FFF;
   border: none;
-  border-radius: 0.75rem;
+  border-radius: 12px;
   padding: 1rem 3rem;
   cursor: pointer;
   font-size: 1.125rem;
@@ -263,7 +263,7 @@ h3.product-section__item {
 .product-details {
   background-color: #FFF0ED;
   border: solid #FFF0ED;
-  border-left: 0.2813rem;
+  border-left: 4.5008px;
   box-shadow: 0 5px 9px -1px rgba(0, 0, 0, 0.25);
 }
 
@@ -301,35 +301,35 @@ a.product-section__button {
   margin-bottom: 9.375rem;
 }
 .final-section__content {
-  max-width: 400px;
+  max-width: 25rem;
   flex: 1; /* how much space do you want the content to take in connection to others */
-  margin-right: 20px;
+  margin-right: 1.25rem;
 }
 .final-section__image {
   position: relative; /* applying position relative to parent to apply absolute on children*/
-  padding: 10px;
-  width: 280px;
+  padding: 0.625rem;
+  width: 17.5rem;
 }
 .final-section__image::before {
   content: "";
   position: absolute;
-  top: -0.625rem; /*In order to move the border above */
-  left: -0.625rem; /* this moves the border to have a horizontol space*/
-  right: -0.625rem;
-  bottom: -0.625rem;
-  border: 0.3125rem solid #5BACC3;
+  top: -10px; /*In order to move the border above */
+  left: -10px; /* this moves the border to have a horizontol space*/
+  right: -10px;
+  bottom: -10px;
+  border: 5px solid #5BACC3; /*leaving px instead of rem since its a border */
   transform: rotate(-20deg); /* rotate is a cool feature, it rotates, and gives it angles, you can determine which angle, and how much you want to rotate. */
   z-index: 1; /* to have the border on top of the menu box */
 }
 .final-section__image img:first-child {
-  width: 280px; /* In order to make the background image fill it's container */
+  width: 17.5rem; /* In order to make the background image fill it's container */
   height: auto;
 }
 .final-section__image img:last-child {
   position: absolute; /* child class so giving it absolute position relative to its parent. */
   top: 20%;
   left: 50%;
-  width: 120px;
+  width: 7.5rem;
   height: auto;
   transform: translateX(-50%); /* this turns it to be horizontally */
 }
@@ -343,7 +343,7 @@ a.product-section__button {
   margin-bottom: 0;
 }
 .final-section__description {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
   font-family: "Open Sans";
   width: 31.25rem;
@@ -358,7 +358,7 @@ a.product-section__button {
   margin-top: 1.5rem;
   justify-content: left;
   text-decoration: none;
-  z-index: 3; /* Twisted effect */
+  z-index: 3;
   top: -0.3125rem;
   left: 0;
   position: relative;
@@ -427,7 +427,7 @@ a.product-section__button {
   display: flex;
   justify-content: space-around;
   align-items: flex-start; /* Aligns items to the start */
-  padding: 20px;
+  padding: 1.25rem;
   position: relative; /* Allows absolute positioning of child elements */
   overflow: visible;
   background-color: #FFF0ED;
@@ -450,15 +450,15 @@ a.product-section__button {
 
 .footer-logo1 { /* I added target = blank to the logos since the instructions says to connect to external  websites */
   position: absolute;
-  top: -20px; /* this moves the logo up.*/
-  left: -50px; /* Aligns logo to the left */
+  top: -1.25rem; /* this moves the logo up.*/
+  left: -3.125rem; /* Aligns logo to the left */
   opacity: 25%;
 }
 
 .footer-logo2 {
   position: absolute;
   opacity: 25%;
-  bottom: 0px; /* this moves the logo down,negative makes it out of the flow */
+  bottom: 0rem; /* this moves the logo down,negative makes it out of the flow */
   right: -4.375rem;
   margin: 0%;
   padding: 0%;

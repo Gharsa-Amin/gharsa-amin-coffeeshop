@@ -20,13 +20,18 @@ $hover-color-1:  #5BACC3;
    text-decoration: none; 
     list-style: none;
 } 
-@mixin border-radius {
-    border-radius: $radius;
-} 
+@mixin font-style {
+font-style: italic;
+margin: 0%;
+font-family: $font-stack;
+}
+
 @mixin center-flex {
     display: flex;
+    background-position: center; 
+    background-size: cover; 
+    background-repeat: no-repeat;
     justify-content: center;
-    align-items: center;
 }
 
 /* -----------------------
