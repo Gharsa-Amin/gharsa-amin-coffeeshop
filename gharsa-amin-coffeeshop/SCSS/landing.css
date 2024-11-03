@@ -453,6 +453,7 @@ a.product-section__button {
   top: -1.25rem; /* this moves the logo up.*/
   left: -3.125rem; /* Aligns logo to the left */
   opacity: 25%;
+  width: 7.5rem;
 }
 
 .footer-logo2 {
