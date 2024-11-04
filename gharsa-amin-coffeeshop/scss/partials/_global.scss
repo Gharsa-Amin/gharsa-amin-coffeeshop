@@ -1,0 +1,116 @@
+/* since the folder structure only requires us to use global scss 
+I will have seperate sections for variables, mixins and typography here under global scss.*/
+/* -----------------------
+** Variable section 
+** 	------------------------*/
+$font-stack: 'Open Sans'; 
+$font-color: #393939; 
+$font-size: 1rem; 
+$primary-color:#5BACC3; 
+$secondary-color: #FFF0ED; 
+$tertiary-color: #909090; 
+$quaternary-color:#393939;
+$hover-color-1:  #5BACC3; 
+/* -----------------------
+** mixin section 
+** 	------------------------*/
+
+@mixin reset-list {
+    margin: 0; 
+   text-decoration: none; 
+    list-style: none;
+} 
+@mixin font-style {
+font-style: italic;
+margin: 0%;
+font-family: $font-stack;
+}
+
+@mixin center-flex {
+    display: flex;
+    background-position: center; 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+
+/* -----------------------
+** Typograph section 
+** 	------------------------*/
+
+body {
+    font-family: $font-stack;
+    color: $font-color;
+    box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+} 
+
+h1 {
+font-size: 3.75rem;
+margin: 0; 
+padding: 0;
+}
+
+h2 {
+    font-size: 3.75rem;
+}
+
+h3 {
+    font-size: 2.0625rem;
+}
+
+/* _header.scss */
+.header {
+    background-color: $secondary-color;
+    padding: 1rem; // Adjust as needed
+
+    &__section {
+        display: flex; 
+        align-items: center;
+    }
+} 
+.header-logo{
+    display: flex;
+    justify-items: left; 
+}
+.nav-header {
+    display: flex;
+    justify-content: flex-end; 
+    @include reset-list; 
+    padding: 0;
+    margin: 0;
+    padding: 3.125rem; 
+    margin-left: auto; /* when you apply margin left 0 to the direct parent class (ul in this case using BEM), with flex, and a gap property, you can move the menu items to the left.  */
+    gap: 2.5rem;  
+    font-weight: 300;
+} 
+    
+
+.nav-items {
+    display: flex;
+    justify-self: space-evenly;
+    margin-left: auto; 
+    text-decoration: none; 
+    color: $quaternary-color; 
+    font-weight: 400;
+    font-size: 1.125rem;
+&_blue {
+color: $primary-color;
+text-decoration: none;
+font-size: 1.125rem;
+font-weight: 400;
+
+}
+} 
+
+.header__title {
+font-size: 3.75rem;                                                            
+padding: 0;
+margin: 0%;
+color: $quaternary-color;
+font-weight: 300; 
+@include reset-list; 
+}
+
